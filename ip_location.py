@@ -1,16 +1,30 @@
-from urllib import response
+from urllib import response #import needed libraries
 import requests
 from requests import get
 
-ip = get('https://api64.ipify.org').text
-# ip = get('https://ip6.seeip.org').text
-print('Your IPV4 address is: {} \n'.format(ip))
-# print('Your IPV6 address is: {}'.format(ip2))
+ip = get('https://ip.seeip.org').text # this is for getting IPV4 using seeip API
+
+# ip = get('https://ip6.seeip.org').text # this is for getting IPV6 using seeip API 
+# Uncomment the line if IPV6 is availabe
+
+print('Your IPV4 address is: {} \n'.format(ip)) # this displays the IPV4
+
+# print('Your IPV6 address is: {}'.format(ip2)) # this displays the IPV6 
+# Uncomment this line together with line 6 if IPV6 is available
 
 response = requests.get("http://ip-api.com/json/"+ip).json()
+# It gets the location of the provided api from the previous lines using the API ip-api
+
 x = response.items()
+# this sets the values from response to the variable x
+
 d = {'status':'Status:', 'country':'Country:', 'countryCode': 'Country Code:', 'region':'Region:','regionName':'Region Name:','city':'City:', 'zip':'ZIP Code:','lat':'Latitude:','lon':'Longitude:','timezone':'Timezone:','isp':'ISP:', 'org':'Org:', 'as':'ASN:', 'query':'Query:'}
+# sets different labels on the keys in dictionary 
+
 change = dict((d[key], value) for (key, value) in x)
+# changes the previous labels to the set label from variable d.
+
 for z in change:
    print(z,change[z])
+# prints all of the output
 
