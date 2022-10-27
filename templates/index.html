@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Software Chasers</title>
+    </head>
+    <body>
+        <h1>Locate IPv4/IPv6 Address</h1>
+        <h3>Your Public Address: {{ip}}</h3>
+        <table border="1">
+            {% for key, value in result.items() %}
+            <tr>
+                <th>{{ key }}</th>
+                <th>{{ value }}</th>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
