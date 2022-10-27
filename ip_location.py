@@ -29,9 +29,8 @@ def home():
    change = dict((d[key], value) for (key, value) in x)
    # changes the previous labels to the set label from variable d.
 
-   for z in change:
-      return render_template("index.html",ip=ip,result=change)
-      # prints the output to the html file
+   return render_template("index.html",ip=ip,result=change)
+   # prints the output to the html file
 
 if __name__ == "__main__":
    app.run()
