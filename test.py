@@ -1,7 +1,7 @@
 from flask import Flask
 import json
 
-from flask_pytest_example.handlers.routes import home
+from Team5_Act7.1.ip_location import home
 
 def test_base_route():
     app = Flask(__name__)
