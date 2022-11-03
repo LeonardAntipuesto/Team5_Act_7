@@ -3,18 +3,98 @@
     <head>
         <title>Software Chasers</title>
     </head>
-    <body>
-        <h1>Locate IPv4/IPv6 Address</h1>
-        <h3>Your Public Address: {{ip}}</h3>
-        <table border="1">
-            {% for key, value in result.items() %}
-            <tr>
-                <th>{{ key }}</th>
-                <th>{{ value }}</th>
-            </tr>
-            {% endfor %}
-        </table>
-        <img src="https://api.mapbox.com/styles/v1/mapbox/light-v10/static/{{long}},{{lat}},14/500x300?access_token=pk.eyJ1IjoicWluYmd1em1hbiIsImEiOiJjbGEwa285MWcwcDZjM3FuejZlczN3cGs3In0.asqQIAvDhevHTTJH-0YOHQ">
+    <style>
+        .grid-container {
+            display: grid;
+            align-content: center;
+        }
 
+        .grid-item1 {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .grid-item2 {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .grid-top {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row: 1;
+        }
+
+        .content-table {
+            border-collapse: collapse;
+            margin: 25px 25px 25px 25px;
+            width: 80%;
+            font-size: 0.9em;
+            min-width: 400px; 
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .content-table th,
+        .content-table td {
+            padding: 12px 15px;
+        }
+
+        .content-table tbody tr {
+            border-bottom: 1px solid #dddddddd;
+        }
+
+        .content-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:first-of-type {
+            border-top: 2px solid #009879;
+            background-color: #f3f3f3;
+        }
+
+        .content-table tbody tr:last-of-type {
+            border-bottom: 2px solid #009879;
+            background-color: #f3f3f3;
+        }
+
+        .table-fcol {
+            background-color: #009879;
+            color: #ffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .img {
+            display: block;
+            margin: 75px 0 0 0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+    </style>
+    <body>
+        <div class="grid-container">
+            <div class="grid-top">
+                <h1>Locate Your IP Address (by Software Chasers)</h1>
+                <h3>Your Public Address: <span style="color: #009879">{{ip}}</span></h3>
+            </div>
+            <div class="grid-item1">
+                <table class="content-table">
+                    {% for key, value in result.items() %}
+                    <tr>
+                        <th class="table-fcol">{{ key }}:</th>
+                        <th>{{ value }}</th>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="grid-item2">
+                <img class="img" src="https://api.mapbox.com/styles/v1/mapbox/light-v10/static/{{long}},{{lat}},14/700x500?access_token=pk.eyJ1IjoicWluYmd1em1hbiIsImEiOiJjbGEwa285MWcwcDZjM3FuejZlczN3cGs3In0.asqQIAvDhevHTTJH-0YOHQ">
+            </div>
+        </div>
     </body>
 </html>
