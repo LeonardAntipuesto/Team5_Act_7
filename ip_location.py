@@ -29,8 +29,19 @@ def home():
    change = dict((d[key], value) for (key, value) in x)
    # changes the previous labels to the set label from variable d.
 
-   return render_template("index.html",ip=ip,result=change)
+   lat = change['Latitude']
+   long = change['Longitude']
+
+   return render_template("index.html",ip=ip,result=change,lat=lat,long=long)
    # prints the output to the html file
+
+# @app.route('/map')
+# def map(change):
+
+#    lat = change['Latitude']
+#    long = change['Longitude']
+
+#    return render_template("map.html",lat=lat,long=long)
 
 if __name__ == "__main__":
    app.run()
