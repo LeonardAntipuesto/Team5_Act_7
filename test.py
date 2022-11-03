@@ -1,14 +1,8 @@
 from flask import Flask
 import json
 
-from Team5_Act7.1.ip_location import home
+from ip_location import app
 
-def test_base_route():
-    app = Flask(__name__)
-    home(app)
-    client = app.test_client()
-    url = '/'
-
-    response = client.get(url)
-    assert response.get_data() == b'Hello, World!'
+def test_ip_location():
+    response = app.test_client().get('/')
     assert response.status_code == 200
