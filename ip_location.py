@@ -29,10 +29,10 @@ def home():
    change = dict((d[key], value) for (key, value) in x)
    # changes the previous labels to the set label from variable d.
 
-   lat = change['Latitude']
-   long = change['Longitude']
+   latitude = change['Latitude']
+   longitude = change['Longitude']
 
-   return render_template("index.html",ip=ip,result=change,lat=lat,long=long)
+   return render_template("index.html",ip=ip,result=change,lat=latitude,long=longitude)
    # prints the output to the html file
 
 if __name__ == "__main__":
