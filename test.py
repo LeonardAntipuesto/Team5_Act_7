@@ -1,7 +1,14 @@
-import unittest
+from flask import Flask
+import json
 
-class Test(unittest.TestCase):
+from flask_pytest_example.handlers.routes import home
 
-    def test(self):
+def test_base_route():
+    app = Flask(__name__)
+    home(app)
+    client = app.test_client()
+    url = '/'
 
-        pass
+    response = client.get(url)
+    assert response.get_data() == b'Hello, World!'
+    assert response.status_code == 200
